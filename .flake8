@@ -2,5 +2,6 @@
 
 exclude =
     migrations
+    venv
 
 max-line-length = 120
