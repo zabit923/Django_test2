@@ -69,3 +69,4 @@ class Comment(models.Model):
         related_name='comment',
         on_delete=models.CASCADE,
     )
+
