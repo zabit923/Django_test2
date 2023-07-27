@@ -15,14 +15,21 @@ class Category(MPTTModel):
         blank=True,
     )
 
+    def __str__(self):
+        return self.name
+
     class MPTTMeta:
         level_attr = 'mptt_level'
         order_insertion_by=['name']
 
 
+
 class Tag(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 
 class Post(models.Model):
@@ -69,4 +76,3 @@ class Comment(models.Model):
         related_name='comment',
         on_delete=models.CASCADE,
     )
-
