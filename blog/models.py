@@ -48,6 +48,8 @@ class Post(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
 
 
+
+
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
     serves = models.CharField(max_length=50)
