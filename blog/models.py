@@ -47,6 +47,9 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag, related_name='post')
     create_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.title
+
 
 
 
