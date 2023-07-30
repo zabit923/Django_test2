@@ -3,24 +3,26 @@ from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 
 
-class Category(MPTTModel):
+class Category_(MPTTModel):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100)
-
     parent = TreeForeignKey(
         'self',
-        related_name='children',
+        related_name="children",
         on_delete=models.SET_NULL,
         null=True,
-        blank=True,
+        blank=True
     )
 
     def __str__(self):
         return self.name
 
     class MPTTMeta:
-        level_attr = 'mptt_level'
-        order_insertion_by=['name']
+        order_insertion_by = ['name']
+
+    class Meta:
+        app_label = 'blog'
+
 
 
 
@@ -39,7 +41,7 @@ class Post(models.Model):
     text = models.TextField()
 
     category = models.ForeignKey(
-        Category,
+        Category_,
         related_name='post',
         on_delete=models.SET_NULL,
         null=True

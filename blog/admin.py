@@ -22,6 +22,6 @@ class RecipeAdmin(admin.ModelAdmin):
     list_display = ['name', 'prep_time', 'cook_time', 'post']
 
 
-admin.site.register(models.Category, MPTTModelAdmin)
+admin.site.register(models.Category_, MPTTModelAdmin)
 admin.site.register(models.Tag)
 admin.site.register(models.Comment)
